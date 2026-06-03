@@ -11,6 +11,7 @@ hiddenimports = [
     "PIL._tkinter_finder",
     # מיובאים lazy )--pot-mode / מתודות API( — PyInstaller לא תופס אוטומטית
     "pot_provider", "updater", "youtube_downloader",
+    "bottle",   # webview.http מייבא bottle ברמת המודול — חובה
 ]
 
 # webview + yt_dlp מלאים; yt_dlp_ejs מכיל את סקריפטי פתרון ה-n-challenge
@@ -33,7 +34,7 @@ a = Analysis(
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=["eel", "gevent", "greenlet", "bottle"],   # לא בשימוש — מצמצם
+    excludes=["eel", "gevent", "greenlet"],   # Eel הוסר; bottle נחוץ ל-webview!
     noarchive=False,
 )
 
