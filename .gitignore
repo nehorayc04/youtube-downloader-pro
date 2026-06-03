@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.spec.bak
+
+# PyInstaller
+build/
+dist/
+*.manifest
+
+# מטמון / זמני
+*.log
+*.part
+pot_cache.json
+pot_tmp.json
+_test_*.py
+TeraCopyTestFile*
+claude.bat
+
+# קבצים כבדים שלא שייכים ל-repo
+*.apk
+*.exe
+*.mp4
+*.mkv
+*.webm
+*.mp3
+*.m4a
+
+# סודות
+client_secret*.json
+*.token
+.env
+
+# IDE
+.vscode/
+.idea/

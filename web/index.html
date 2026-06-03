@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>YouTube Downloader Pro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <canvas id="bg"></canvas>
+
+  <div class="app">
+    <!-- סרגל צד -->
+    <aside class="sidebar">
+      <div class="logo">
+        <span class="mark" data-icon="play"></span>
+        <div><div class="name">YT Pro</div><div class="ver" id="ver">v2.0</div></div>
+      </div>
+      <div class="nav-sep"></div>
+      <div class="nav-btn active" data-page="download"><span class="nav-ic" data-icon="download"></span><span>הורדה</span></div>
+      <div class="nav-btn" data-page="queue"><span class="nav-ic" data-icon="list"></span><span>תור</span></div>
+      <div class="nav-btn" data-page="settings"><span class="nav-ic" data-icon="settings"></span><span>הגדרות</span></div>
+      <div class="nav-spacer"></div>
+      <div class="status-line ok"><span class="dot"></span> yt-dlp <span id="ytv"></span></div>
+      <div class="status-line" id="ff"><span class="dot"></span> FFmpeg</div>
+    </aside>
+
+    <!-- תוכן -->
+    <main class="content">
+      <!-- עמוד הורדה -->
+      <section class="page active" id="page-download">
+        <div class="h1">הורדה מ-YouTube</div>
+        <div class="sub">סרטונים · פלייליסטים · ערוצים · שירים</div>
+        <div class="grad-line"></div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="link"></span> כתובת YouTube</div>
+          <div class="row">
+            <input type="text" id="url" placeholder="הדבק כתובת YouTube כאן..." />
+            <button class="btn" id="paste"><span class="bi" data-icon="clipboard"></span> הדבק</button>
+            <button class="btn blue" id="detect"><span class="bi" data-icon="search"></span> זהה</button>
+          </div>
+          <div class="badge" id="badge"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="settings"></span> אפשרויות הורדה</div>
+          <div id="opts-dl"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="folder"></span> תיקיית שמירה</div>
+          <div class="row">
+            <input type="text" id="path" />
+            <button class="btn" id="browse">בחר תיקייה</button>
+          </div>
+        </div>
+
+        <button class="btn-dl" id="start"><span class="bi" data-icon="download"></span> התחל הורדה</button>
+
+        <div class="h1" style="font-size:16px;margin:22px 0 10px">הורדות פעילות</div>
+        <div id="downloads"><div class="empty" id="empty">אין הורדות פעילות</div></div>
+      </section>
+
+      <!-- עמוד תור -->
+      <section class="page" id="page-queue">
+        <div class="h1">תור הורדות</div>
+        <div class="grad-line"></div>
+        <div class="card glass"><div id="queue"><div class="empty">התור ריק</div></div></div>
+      </section>
+
+      <!-- עמוד הגדרות -->
+      <section class="page" id="page-settings">
+        <div class="h1">הגדרות</div>
+        <div class="grad-line"></div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="video"></span> ברירות מחדל להורדה</div>
+          <div class="sub" style="margin-bottom:12px">הערכים שייבחרו אוטומטית בכל הורדה חדשה</div>
+          <div id="opts-set"></div>
+        </div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="shield"></span> עקיפת זיהוי בוטים</div>
+          <div class="switch-row" id="cookies-row">
+            <div class="switch" id="cookies-sw"></div><span>שימוש בעוגיות דפדפן</span>
+          </div>
+          <label class="lbl">בחר דפדפן</label>
+          <div id="browser-dd"></div>
+          <div class="help">אם Chrome/Edge נעולים — ייצא cookies.txt בתוסף "Get cookies.txt LOCALLY" והצבע לקובץ:</div>
+          <div class="row" style="margin-top:8px">
+            <input type="text" id="ckfile" class="small" placeholder="נתיב לקובץ cookies.txt (אופציונלי)" />
+            <button class="btn small" id="pickck">בחר</button>
+            <button class="btn small" id="clearck">נקה</button>
+          </div>
+        </div>
+
+        <div class="card glass">
+          <div class="card-title"><span class="ti" data-icon="info"></span> אודות</div>
+          <div class="help" id="about"></div>
+          <button class="btn blue" id="update" style="margin-top:10px"><span class="bi" data-icon="refresh"></span> עדכן yt-dlp</button>
+          <button class="btn" id="appupdate" style="margin-top:8px"><span class="bi" data-icon="refresh"></span> בדוק עדכון לתוכנה</button>
+          <div class="help" id="appupd-status" style="margin-top:6px"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="icons.js"></script>
+  <script src="starfield.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
