@@ -18,6 +18,9 @@ _test_*.py
 TeraCopyTestFile*
 claude.bat
 
+# צ'אטים שמורים — פרטי, לא לפרסום ב-repo הציבורי
+_chat-history/
+
 # קבצים כבדים שלא שייכים ל-repo
 *.apk
 *.exe
@@ -35,3 +38,6 @@ client_secret*.json
 # IDE
 .vscode/
 .idea/
+
+# Claude Code — הגדרות מקומיות, לא ל-repo הציבורי
+.claude/
